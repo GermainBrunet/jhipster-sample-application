@@ -1,0 +1,74 @@
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+entity LabelLanguage {
+	language Language,
+    value String
+}
+
+entity Label {
+	labelLanguage LabelLanguage,
+	code String
+}
+
+relationship OneToMany {
+	Label to LabelLanguage
+}
+
+entity Keyword {
+	name Label
+}
+
+relationship OneToOne {
+	Keyword{name} to Label
+}
+
+entity Level {
+	name Label
+}
+
+relationship OneToOne {
+	Level{name} to Label
+}
+
+entity Exercise {
+	sortOrder Integer,
+    initialWord String,
+    targetWord String,
+    readInstructions String,
+    writtenInstructions String,
+}
+
+entity ExerciseGroup {
+	language Language,
+	name Label,
+    sortOrder Integer,
+    author String,
+    description String,
+}
+
+relationship OneToMany {
+	ExerciseGroup{exercises} to Exercise{exerciseGroup}
+}
+
+relationship OneToMany {
+	Level{exerciseGroup} to ExerciseGroup{level}
+}
+
+relationship ManyToMany {
+	ExerciseGroup{keyword} to Keyword{exerciseGroup}
+}
+
+// Set pagination options
+paginate Level, Label, LabelLanguage, Keyword with infinite-scroll
+paginate Exercise, ExerciseGroup with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with ds
