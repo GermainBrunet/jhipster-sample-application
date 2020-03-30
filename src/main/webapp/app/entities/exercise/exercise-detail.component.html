@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="exercise">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.exercise.detail.title">Exercise</span> {{ exercise.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exercise.guid">Guid</span></dt>
+                <dd>
+                    <span>{{ exercise.guid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exercise.sortOrder">Sort Order</span></dt>
+                <dd>
+                    <span>{{ exercise.sortOrder }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exercise.initialWord">Initial Word</span></dt>
+                <dd>
+                    <span>{{ exercise.initialWord }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exercise.targetWord">Target Word</span></dt>
+                <dd>
+                    <span>{{ exercise.targetWord }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exercise.readInstructions">Read Instructions</span></dt>
+                <dd>
+                    <span>{{ exercise.readInstructions }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exercise.writtenInstructions">Written Instructions</span></dt>
+                <dd>
+                    <span>{{ exercise.writtenInstructions }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exercise.exerciseGroup">Exercise Group</span></dt>
+                <dd>
+                    <div *ngIf="exercise.exerciseGroupId">
+                        <a [routerLink]="['/exercise-group', exercise.exerciseGroupId, 'view']">{{ exercise.exerciseGroupId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/exercise', exercise.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

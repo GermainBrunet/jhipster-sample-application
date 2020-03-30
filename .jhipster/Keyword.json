@@ -1,0 +1,41 @@
+{
+    "name": "Keyword",
+    "fields": [
+        {
+            "fieldName": "guid",
+            "fieldType": "UUID",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "label",
+            "otherEntityRelationshipName": "keyword",
+            "relationshipName": "label",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "exerciseGroup",
+            "otherEntityRelationshipName": "keyword",
+            "relationshipName": "exerciseGroup",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200330225000",
+    "entityTableName": "keyword",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

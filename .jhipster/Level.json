@@ -1,0 +1,39 @@
+{
+    "name": "Level",
+    "fields": [
+        {
+            "fieldName": "guid",
+            "fieldType": "UUID",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "label",
+            "otherEntityRelationshipName": "level",
+            "relationshipName": "label",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "exerciseGroup",
+            "otherEntityRelationshipName": "level",
+            "relationshipName": "exerciseGroup"
+        }
+    ],
+    "changelogDate": "20200330225100",
+    "entityTableName": "level",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
