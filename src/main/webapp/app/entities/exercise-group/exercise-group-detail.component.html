@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="exerciseGroup">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.exerciseGroup.detail.title">Exercise Group</span> {{ exerciseGroup.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exerciseGroup.language">Language</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.Language.' + exerciseGroup.language }}">{{ exerciseGroup.language }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exerciseGroup.guid">Guid</span></dt>
+                <dd>
+                    <span>{{ exerciseGroup.guid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exerciseGroup.sortOrder">Sort Order</span></dt>
+                <dd>
+                    <span>{{ exerciseGroup.sortOrder }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exerciseGroup.name">Name</span></dt>
+                <dd>
+                    <span>{{ exerciseGroup.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exerciseGroup.description">Description</span></dt>
+                <dd>
+                    <span>{{ exerciseGroup.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exerciseGroup.author">Author</span></dt>
+                <dd>
+                    <span>{{ exerciseGroup.author }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exerciseGroup.keyword">Keyword</span></dt>
+                <dd>
+                    <span *ngFor="let keyword of exerciseGroup.keywords; let last = last">
+                        <a [routerLink]="['/keyword', keyword?.id, 'view']">{{ keyword.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.exerciseGroup.level">Level</span></dt>
+                <dd>
+                    <div *ngIf="exerciseGroup.levelId">
+                        <a [routerLink]="['/level', exerciseGroup.levelId, 'view']">{{ exerciseGroup.levelId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/exercise-group', exerciseGroup.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

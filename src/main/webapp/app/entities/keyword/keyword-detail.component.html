@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="keyword">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.keyword.detail.title">Keyword</span> {{ keyword.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.keyword.guid">Guid</span></dt>
+                <dd>
+                    <span>{{ keyword.guid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.keyword.name">Name</span></dt>
+                <dd>
+                    <div *ngIf="keyword.nameId">
+                        <a [routerLink]="['/label', keyword.nameId, 'view']">{{ keyword.nameId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.keyword.description">Description</span></dt>
+                <dd>
+                    <div *ngIf="keyword.descriptionId">
+                        <a [routerLink]="['/label', keyword.descriptionId, 'view']">{{ keyword.descriptionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/keyword', keyword.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
