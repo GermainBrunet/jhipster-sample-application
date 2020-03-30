@@ -1,0 +1,67 @@
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+entity Label {
+	language Language,
+	code String required
+}
+
+entity LabelValue {
+    value String required
+}
+
+entity Keyword {
+	guid UUID required
+}
+
+entity Level {
+	guid UUID required
+}
+
+entity ExerciseGroup {
+    language Language,
+    guid UUID required,
+    sortOrder Integer,
+    author String
+}
+
+relationship OneToMany {
+    Label{languageValue} to LabelValue{code}
+}
+
+relationship OneToOne {
+	Keyword{name} to Label{guid}
+}
+
+relationship OneToOne {
+	Keyword{description} to Label{guid}
+}
+
+relationship OneToOne {
+	Level{name} to Label{guid}
+}
+
+relationship OneToOne {
+	Level{description} to Label{guid}
+}
+
+relationship OneToOne {
+	ExerciseGroup{name} to Label{guid}
+}
+
+relationship OneToOne {
+	ExerciseGroup{description} to Label{guid}
+}
+
+relationship ManyToMany {
+	ExerciseGroup to Keyword
+}
+
+relationship ManyToOne {
+	ExerciseGroup to Level
+}
+
+paginate Label, LabelValue, Keyword, ExerciseGroup with pagination
+dto * with mapstruct
+service all with serviceImpl
