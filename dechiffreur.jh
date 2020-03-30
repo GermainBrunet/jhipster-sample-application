@@ -1,0 +1,21 @@
+//enum Language {
+//    FRENCH, ENGLISH, SPANISH
+//}
+
+entity LanguageValue {
+	// language Language,
+    value String required
+}
+
+entity LanguageCode {
+	labelLanguage LabelLanguage,
+	code String required
+}
+
+relationship OneToMany {
+    LanguageCode{languageValue} to LanguageValue{languageCode required}
+}
+
+paginate LanguageValue, LanguageCode with pagination
+dto * with mapstruct
+service all with serviceImpl
