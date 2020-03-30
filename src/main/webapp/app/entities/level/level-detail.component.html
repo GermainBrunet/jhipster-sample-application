@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="level">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.level.detail.title">Level</span> {{ level.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.level.guid">Guid</span></dt>
+                <dd>
+                    <span>{{ level.guid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.level.name">Name</span></dt>
+                <dd>
+                    <div *ngIf="level.nameId">
+                        <a [routerLink]="['/label', level.nameId, 'view']">{{ level.nameId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.level.description">Description</span></dt>
+                <dd>
+                    <div *ngIf="level.descriptionId">
+                        <a [routerLink]="['/label', level.descriptionId, 'view']">{{ level.descriptionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/level', level.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

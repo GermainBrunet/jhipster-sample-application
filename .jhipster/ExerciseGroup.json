@@ -1,0 +1,69 @@
+{
+    "name": "ExerciseGroup",
+    "fields": [
+        {
+            "fieldName": "language",
+            "fieldType": "Language",
+            "fieldValues": "FRENCH,ENGLISH,SPANISH"
+        },
+        {
+            "fieldName": "guid",
+            "fieldType": "UUID",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sortOrder",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "author",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "label",
+            "otherEntityRelationshipName": "guid",
+            "relationshipName": "name",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "label",
+            "otherEntityRelationshipName": "guid",
+            "relationshipName": "description",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "keyword",
+            "otherEntityRelationshipName": "exerciseGroup",
+            "relationshipName": "keyword",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "level",
+            "otherEntityRelationshipName": "exerciseGroup",
+            "relationshipName": "level",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200330204600",
+    "entityTableName": "exercise_group",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

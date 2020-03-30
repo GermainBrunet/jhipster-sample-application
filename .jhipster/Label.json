@@ -1,0 +1,78 @@
+{
+    "name": "Label",
+    "fields": [
+        {
+            "fieldName": "language",
+            "fieldType": "Language",
+            "fieldValues": "FRENCH,ENGLISH,SPANISH"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "labelValue",
+            "otherEntityRelationshipName": "code",
+            "relationshipName": "languageValue"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "keyword",
+            "otherEntityRelationshipName": "name",
+            "relationshipName": "guid",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "keyword",
+            "otherEntityRelationshipName": "description",
+            "relationshipName": "guid",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "level",
+            "otherEntityRelationshipName": "name",
+            "relationshipName": "guid",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "level",
+            "otherEntityRelationshipName": "description",
+            "relationshipName": "guid",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "exerciseGroup",
+            "otherEntityRelationshipName": "name",
+            "relationshipName": "guid",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "exerciseGroup",
+            "otherEntityRelationshipName": "description",
+            "relationshipName": "guid",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200330204200",
+    "entityTableName": "label",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

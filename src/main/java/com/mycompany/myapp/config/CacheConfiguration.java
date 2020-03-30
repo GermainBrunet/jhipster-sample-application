@@ -40,6 +40,15 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.Label.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Label.class.getName() + ".languageValues");
+            createCache(cm, com.mycompany.myapp.domain.LabelValue.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Keyword.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Keyword.class.getName() + ".exerciseGroups");
+            createCache(cm, com.mycompany.myapp.domain.Level.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Level.class.getName() + ".exerciseGroups");
+            createCache(cm, com.mycompany.myapp.domain.ExerciseGroup.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ExerciseGroup.class.getName() + ".keywords");
             // jhipster-needle-ehcache-add-entry
         };
     }

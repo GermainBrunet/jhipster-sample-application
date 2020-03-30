@@ -1,0 +1,29 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "exerciseGroup": {
+      "home": {
+        "title": "Exercise Groups",
+        "createLabel": "Create a new Exercise Group",
+        "createOrEditLabel": "Create or edit a Exercise Group",
+        "notFound": "No Exercise Groups found"
+      },
+      "created": "A new Exercise Group is created with identifier {{ param }}",
+      "updated": "A Exercise Group is updated with identifier {{ param }}",
+      "deleted": "A Exercise Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Exercise Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Exercise Group"
+      },
+      "language": "Language",
+      "guid": "Guid",
+      "sortOrder": "Sort Order",
+      "author": "Author",
+      "name": "Name",
+      "description": "Description",
+      "keyword": "Keyword",
+      "level": "Level"
+    }
+  }
+}
