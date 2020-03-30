@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-exercise-heading" jhiTranslate="jhipsterSampleApplicationApp.exercise.home.createOrEditLabel">Create or edit a Exercise</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.exercise.guid" for="field_guid">Guid</label>
+                    <input type="text" class="form-control" name="guid" id="field_guid"
+                           formControlName="guid"/>
+                    <div *ngIf="editForm.get('guid')!.invalid && (editForm.get('guid')!.dirty || editForm.get('guid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('guid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.exercise.sortOrder" for="field_sortOrder">Sort Order</label>
+                    <input type="number" class="form-control" name="sortOrder" id="field_sortOrder"
+                           formControlName="sortOrder"/>
+                    <div *ngIf="editForm.get('sortOrder')!.invalid && (editForm.get('sortOrder')!.dirty || editForm.get('sortOrder')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sortOrder')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('sortOrder')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.exercise.initialWord" for="field_initialWord">Initial Word</label>
+                    <input type="text" class="form-control" name="initialWord" id="field_initialWord"
+                           formControlName="initialWord"/>
+                    <div *ngIf="editForm.get('initialWord')!.invalid && (editForm.get('initialWord')!.dirty || editForm.get('initialWord')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('initialWord')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.exercise.targetWord" for="field_targetWord">Target Word</label>
+                    <input type="text" class="form-control" name="targetWord" id="field_targetWord"
+                           formControlName="targetWord"/>
+                    <div *ngIf="editForm.get('targetWord')!.invalid && (editForm.get('targetWord')!.dirty || editForm.get('targetWord')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('targetWord')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.exercise.readInstructions" for="field_readInstructions">Read Instructions</label>
+                    <input type="text" class="form-control" name="readInstructions" id="field_readInstructions"
+                           formControlName="readInstructions"/>
+                    <div *ngIf="editForm.get('readInstructions')!.invalid && (editForm.get('readInstructions')!.dirty || editForm.get('readInstructions')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('readInstructions')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.exercise.writtenInstructions" for="field_writtenInstructions">Written Instructions</label>
+                    <input type="text" class="form-control" name="writtenInstructions" id="field_writtenInstructions"
+                           formControlName="writtenInstructions"/>
+                    <div *ngIf="editForm.get('writtenInstructions')!.invalid && (editForm.get('writtenInstructions')!.dirty || editForm.get('writtenInstructions')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('writtenInstructions')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.exercise.exerciseGroup" for="field_exerciseGroup">Exercise Group</label>
+                    <select class="form-control" id="field_exerciseGroup" name="exerciseGroup" formControlName="exerciseGroupId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="exerciseGroupOption.id" *ngFor="let exerciseGroupOption of exercisegroups; trackBy: trackById">{{ exerciseGroupOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

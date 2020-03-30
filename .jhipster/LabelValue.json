@@ -1,0 +1,32 @@
+{
+    "name": "LabelValue",
+    "fields": [
+        {
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "label",
+            "otherEntityRelationshipName": "languageValue",
+            "relationshipName": "code",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200330205300",
+    "entityTableName": "label_value",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

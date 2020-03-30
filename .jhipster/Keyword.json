@@ -1,0 +1,49 @@
+{
+    "name": "Keyword",
+    "fields": [
+        {
+            "fieldName": "guid",
+            "fieldType": "UUID",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "label",
+            "otherEntityRelationshipName": "guid",
+            "relationshipName": "name",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "label",
+            "otherEntityRelationshipName": "guid",
+            "relationshipName": "description",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "exerciseGroup",
+            "otherEntityRelationshipName": "keyword",
+            "relationshipName": "exerciseGroup",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200330205400",
+    "entityTableName": "keyword",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

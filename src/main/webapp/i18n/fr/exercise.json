@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "exercise": {
+      "home": {
+        "title": "Exercises",
+        "createLabel": "Créer un nouveau Exercise",
+        "createOrEditLabel": "Créer ou éditer un Exercise",
+        "notFound": "Aucun Exercise trouvé"
+      },
+      "created": "Un nouveau Exercise a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Exercise avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Exercise avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Exercise {{ id }} ?"
+      },
+      "detail": {
+        "title": "Exercise"
+      },
+      "guid": "Guid",
+      "sortOrder": "Sort Order",
+      "initialWord": "Initial Word",
+      "targetWord": "Target Word",
+      "readInstructions": "Read Instructions",
+      "writtenInstructions": "Written Instructions",
+      "exerciseGroup": "Exercise Group"
+    }
+  }
+}
