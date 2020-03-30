@@ -1,0 +1,23 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "languageCode": {
+      "home": {
+        "title": "LanguageCodes",
+        "createLabel": "Créer un nouveau Language Code",
+        "createOrEditLabel": "Créer ou éditer un Language Code",
+        "notFound": "Aucun Language Code trouvé"
+      },
+      "created": "Un nouveau Language Code a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Language Code avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Language Code avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Language Code {{ id }} ?"
+      },
+      "detail": {
+        "title": "Language Code"
+      },
+      "code": "Code",
+      "languageValue": "Language Value"
+    }
+  }
+}
