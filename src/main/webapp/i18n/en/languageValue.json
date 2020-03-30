@@ -1,0 +1,23 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "languageValue": {
+      "home": {
+        "title": "Language Values",
+        "createLabel": "Create a new Language Value",
+        "createOrEditLabel": "Create or edit a Language Value",
+        "notFound": "No Language Values found"
+      },
+      "created": "A new Language Value is created with identifier {{ param }}",
+      "updated": "A Language Value is updated with identifier {{ param }}",
+      "deleted": "A Language Value is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Language Value {{ id }}?"
+      },
+      "detail": {
+        "title": "Language Value"
+      },
+      "value": "Value",
+      "code": "Code"
+    }
+  }
+}
