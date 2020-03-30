@@ -1,0 +1,32 @@
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+entity Label {
+	language Language,
+	code String required
+}
+
+entity LabelValue {
+    value String required
+}
+
+entity Keyword {
+	guid String required
+}
+
+relationship OneToMany {
+    Label{languageValue} to LabelValue{code}
+}
+
+relationship OneToOne {
+	Keyword{name} to Label{guid}
+}
+
+relationship OneToOne {
+	Keyword{description} to Label{guid}
+}
+
+paginate Label, LabelValue, Keyword with pagination
+dto * with mapstruct
+service all with serviceImpl
