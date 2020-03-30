@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity ExerciseGroup.
+    -->
+    <changeSet id="20200330225200-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="exercise_group_id"
+                                 baseTableName="exercise_group_keyword"
+                                 constraintName="fk_exercise_group_keyword_exercise_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exercise_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="keyword_id"
+                                 baseTableName="exercise_group_keyword"
+                                 constraintName="fk_exercise_group_keyword_keyword_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="keyword"/>
+        
+        <addForeignKeyConstraint baseColumnNames="level_id"
+                                 baseTableName="exercise_group"
+                                 constraintName="fk_exercise_group_level_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="level"/>
+
+    </changeSet>
+</databaseChangeLog>

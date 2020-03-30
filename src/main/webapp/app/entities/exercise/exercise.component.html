@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.exercise.home.title">Exercises</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-exercise" [routerLink]="['/exercise/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.exercise.home.createLabel">
+            Create a new Exercise
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="exercises?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.exercise.home.notFound">No exercises found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="exercises?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="guid"><span jhiTranslate="jhipsterSampleApplicationApp.exercise.guid">Guid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sortOrder"><span jhiTranslate="jhipsterSampleApplicationApp.exercise.sortOrder">Sort Order</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="initialWord"><span jhiTranslate="jhipsterSampleApplicationApp.exercise.initialWord">Initial Word</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="targetWord"><span jhiTranslate="jhipsterSampleApplicationApp.exercise.targetWord">Target Word</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="readInstructions"><span jhiTranslate="jhipsterSampleApplicationApp.exercise.readInstructions">Read Instructions</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="writtenInstructions"><span jhiTranslate="jhipsterSampleApplicationApp.exercise.writtenInstructions">Written Instructions</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="exerciseGroupId"><span jhiTranslate="jhipsterSampleApplicationApp.exercise.exerciseGroup">Exercise Group</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let exercise of exercises ;trackBy: trackId">
+                    <td><a [routerLink]="['/exercise', exercise.id, 'view']">{{ exercise.id }}</a></td>
+                    <td>{{ exercise.guid }}</td>
+                    <td>{{ exercise.sortOrder }}</td>
+                    <td>{{ exercise.initialWord }}</td>
+                    <td>{{ exercise.targetWord }}</td>
+                    <td>{{ exercise.readInstructions }}</td>
+                    <td>{{ exercise.writtenInstructions }}</td>
+                    <td>
+                        <div *ngIf="exercise.exerciseGroupId">
+                            <a [routerLink]="['/exercise-group', exercise.exerciseGroupId , 'view']" >{{ exercise.exerciseGroupId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/exercise', exercise.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/exercise', exercise.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(exercise)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="exercises?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>
